@@ -5,11 +5,16 @@ spring:
     active: "dev"
   application:
     name: mini-decoder
+  server:
+    port: 3045
   datasource:
-    url: postgresql://localhost:5432/mydb
-    username: mini-decoder-test
-    password: mypassdecoder
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
   jpa:
     hibernate:
-      ddl-auto: create-drop #better for testing , we gonna comment it or delet it in prod env
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:create-drop}
+    properties:
+        hibernate:
+          dialect: ${SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT:org.hibernate.dialect.PostgreSQLDialect}
 

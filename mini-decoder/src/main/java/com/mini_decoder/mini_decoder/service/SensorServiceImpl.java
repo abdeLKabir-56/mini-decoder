@@ -19,7 +19,7 @@ public class SensorServiceImpl implements SensorService {
         sensor.setBuildingId(buildingId);
         sensor.setSensorId(sensorId);
         sensor.setTimestamp(timestamp);
-        sensor.setValue(value)
+        sensor.setValue(value);
         sensorRepository.save(sensor);
         return "Success";
     }
