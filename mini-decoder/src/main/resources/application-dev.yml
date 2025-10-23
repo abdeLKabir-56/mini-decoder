@@ -1,0 +1,15 @@
+server:
+  port: 3045
+spring:
+  profiles:
+    active: "dev"
+  application:
+    name: mini-decoder
+  datasource:
+    url: postgresql://localhost:5432/mydb
+    username: mini-decoder-test
+    password: mypassdecoder
+  jpa:
+    hibernate:
+      ddl-auto: create-drop #better for testing , we gonna comment it or delet it in prod env
+
