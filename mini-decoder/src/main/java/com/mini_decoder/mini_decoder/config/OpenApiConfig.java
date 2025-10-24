@@ -8,19 +8,19 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-
 @Configuration
 @RequiredArgsConstructor
 public class OpenApiConfig {
+
     private final ServletContext context;
+
     @Bean
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Google Shopping Scraping Project API")
+                        .title("Mini Decoder API")
                         .version("1.0.0")
-                        .description("API documentation for the Google Shopping scraping project"))
-                        .addServersItem(new Server().url(context.getContextPath()));
+                        .description("API documentation for the Mini Decoder project, which handles sensor data ingestion and forecasting."))
+                .addServersItem(new Server().url(context.getContextPath()));
     }
-
 }
