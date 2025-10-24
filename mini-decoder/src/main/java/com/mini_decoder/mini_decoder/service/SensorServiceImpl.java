@@ -24,4 +24,9 @@ public class SensorServiceImpl implements SensorService {
         return "Success";
     }
 
+    @Override
+    public String forcasting() {
+        return "";
+    }
+
 }

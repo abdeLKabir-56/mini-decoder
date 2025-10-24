@@ -1,31 +1,22 @@
-version: "3.9"
+version: '2'
+
 services:
-  postgres:
-    image: postgres:16
-    container_name: mini-decoder-db
-    restart: always
-    environment:
-      POSTGRES_DB: mydb
-      POSTGRES_USER: mini-decoder-test
-      POSTGRES_PASSWORD: mypassdecoder
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
   app:
-    build: .
-    container_name: mini-decoder-app
+    image: 'docker-spring-boot-postgres:latest'
+    build:
+      context: .
+    container_name: app
     depends_on:
-      - postgres
+      - db
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/mydb
-      SPRING_DATASOURCE_USERNAME: mini-decoder-test
-      SPRING_DATASOURCE_PASSWORD: mypassdecoder
-      SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
-      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.PostgreSQLDialect
-    ports:
-      - "3045:3045"
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/compose-postgres
+      - SPRING_DATASOURCE_USERNAME=compose-postgres
+      - SPRING_DATASOURCE_PASSWORD=compose-postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
 
-volumes:
-  postgres_data:
+  db:
+    image: 'postgres:13.1-alpine'
+    container_name: db
+    environment:
+      - POSTGRES_USER=compose-postgres
+      - POSTGRES_PASSWORD=compose-postgres

@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api/v1")
+@RequestMapping
 @RequiredArgsConstructor
 public class SensorController {
 
