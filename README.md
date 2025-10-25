@@ -104,5 +104,6 @@ Access Swagger UI at: `http://localhost:8080/swagger-ui.html`
 ---
 
 **Developer:** Abdelkabir Elhamoussi
+
 **Supervisor:** Prof. Yann-Gaël Guéhéneuc  
 **Institution:** Concordia University
