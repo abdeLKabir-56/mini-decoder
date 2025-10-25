@@ -40,7 +40,7 @@ public class SensorServiceImpl implements SensorService {
      */
     public List<Double> predict(String buildingId, String sensorId, int k, int window) {
         List<Double> recent = sensorRepository.findRecentValues(buildingId, sensorId, window);
-        double avg = 0.0;
+        double avg;
         if (recent == null || recent.isEmpty()) {
             // no data -> return zeros (or NaN). We choose zeros for simplicity.
             avg = 0.0;
