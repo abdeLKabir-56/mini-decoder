@@ -41,7 +41,7 @@ public class SensorController {
             summary = "endpoint returning 3 predicted future values using a simple model",
             description = "endpoint returning 3 predicted future values using a simple model"
     )    @GetMapping ("/forecast")
-    public ResponseEntity<?> forecast(
+    public ResponseEntity<List<Double>> forecast(
             @RequestParam String buildingId,
             @RequestParam String sensorId,
             @RequestParam(defaultValue = "3") int horizon,
